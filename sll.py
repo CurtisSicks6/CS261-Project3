@@ -191,6 +191,7 @@ class LinkedList:
         while current_node.next is not None:
             if current_node.value == value:
                 count += 1
+            current_node = current_node.next
 
         if current_node.next is None:
             if current_node.value == value:
