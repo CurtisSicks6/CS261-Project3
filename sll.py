@@ -185,19 +185,24 @@ class LinkedList:
         Counts the number of elements in the list that match the provided value. Returns the count.
         """
 
+        # Initialize count and start front sentinel
         count = 0
         current_node = self._head
 
+        # Iterate through the list, counting the number of times we pass an equal value
         while current_node.next is not None:
             if current_node.value == value:
                 count += 1
             current_node = current_node.next
 
+        # Run one last check for the final node in the list.
         if current_node.next is None:
             if current_node.value == value:
                 count += 1
 
         return count
+
+        # We have to pass through the full list to ensure our count is correct, so O(N).
         pass
 
 
