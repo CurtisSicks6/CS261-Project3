@@ -90,27 +90,49 @@ class LinkedList:
 
         # Create the new node and start at the sentinel node
         added_node = SLNode(value)
-        current = self._head
+        current_node = self._head
 
         # Pass through the linked list entirely. Only when the last node points to None do we insert
         # the added node.
 
-        while current.next is not None:
-            current = current.next
-        current.next = added_node
+        while current_node.next is not None:
+            current_node = current_node.next
+        current_node.next = added_node
 
         # We pass through all elements of the list, thus making the operation of O(N) complexity
         pass
 
     def insert_at_index(self, index: int, value: object) -> None:
         """
-        TODO: Write this implementation
+        Inserts the given value at the specified position of the list. Raise an SLLException
+        if the index is out of bounds.
         """
+        # Handle Out of Bounds index
+        if index < 0 or index > self.length():
+            raise SLLException("Index is out of Bounds")
+
+        # Create new node, start at sentinel node, initialize index
+        added_node = SLNode(value)
+        current_node = self._head
+        current_index = 0
+
+        # Move through the list until we reach the specified index
+        while current_index < index:
+            current_node = current_node.next
+            current_index = 1
+
+        # Have the new node point to node the current node is pointing to,
+        # then have current node point to the added node
+        added_node.next = current_node.next
+        current_node.next = added_node
+
+        # Worst case scenario, we have to pass through the full list to reach the specified index so O(N) complexity.
+
         pass
 
     def remove_at_index(self, index: int) -> None:
         """
-        TODO: Write this implementation
+
         """
         pass
 
