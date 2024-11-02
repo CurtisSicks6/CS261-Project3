@@ -85,8 +85,21 @@ class LinkedList:
 
     def insert_back(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Add a new node to the end of the list.
         """
+
+        # Create the new node and start at the sentinel node
+        added_node = SLNode(value)
+        current = self._head
+
+        # Pass through the linked list entirely. Only when the last node points to None do we insert
+        # the added node.
+
+        while current.next is not None:
+            current = current.next
+        current.next = added_node
+
+        # We pass through all elements of the list, thus making the operation of O(N) complexity
         pass
 
     def insert_at_index(self, index: int, value: object) -> None:
