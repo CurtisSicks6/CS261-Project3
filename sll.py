@@ -119,7 +119,7 @@ class LinkedList:
         # Move through the list until we reach the specified index
         while current_index < index:
             current_node = current_node.next
-            current_index = 1
+            current_index += 1
 
         # Have the new node point to node the current node is pointing to,
         # then have current node point to the added node
