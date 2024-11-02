@@ -182,9 +182,24 @@ class LinkedList:
 
     def count(self, value: object) -> int:
         """
-        TODO: Write this implementation
+        Counts the number of elements in the list that match the provided value. Returns the count.
         """
+
+        count = 0
+        current_node = self._head
+
+        while current_node.next is not None:
+            if current_node.value == value:
+                count += 1
+
+        if current_node.next is None:
+            if current_node.value == value:
+                count += 1
+
+        return count
         pass
+
+
 
     def find(self, value: object) -> bool:
         """
