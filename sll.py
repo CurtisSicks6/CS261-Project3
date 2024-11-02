@@ -158,8 +158,26 @@ class LinkedList:
 
     def remove(self, value: object) -> bool:
         """
-        TODO: Write this implementation
+        Removes the first node that matches the provided value.
+        If a node is removed, return true. Return False if not.
         """
+
+        # Start at sentinel node
+        current_node = self._head
+
+        # Work through the list looking for the passed value.
+        while current_node.next is not None:
+            if current_node.next.value == value:
+                # The pointer for the current node should now skip the node we want to remove and point to the
+                # node ahead of it.
+                current_node.next = current_node.next.next
+                return True
+            current_node = current_node.next
+
+        # If no node value matches, return False
+        return False
+
+        # Worst case scenario, we have to pass through the full list to reach to find a matching node value, so O(N).
         pass
 
     def count(self, value: object) -> int:
