@@ -132,8 +132,28 @@ class LinkedList:
 
     def remove_at_index(self, index: int) -> None:
         """
-
+        Removes the node that is present at the specified index. Raise an SLLException
+        if the index is out of bounds.
         """
+        # Handle Out of Bounds index
+        if index < 0 or index >= self.length():
+            raise SLLException("Index is out of Bounds")
+
+        # Start at sentinel node, initialize index
+        current_node = self._head
+        current_index = 0
+
+        # Move through the list until we reach the specified index
+        while current_index < index:
+            current_node = current_node.next
+            current_index += 1
+
+        # The pointer for the current node should now skip the node we want to remove and point to the
+        # node ahead of it
+        current_node.next = current_node.next.next
+
+        # Worst case scenario, we have to pass through the full list to reach the specified index so O(N) complexity.
+
         pass
 
     def remove(self, value: object) -> bool:
