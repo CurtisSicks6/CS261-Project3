@@ -130,6 +130,7 @@ class Queue:
         """
         Returns the value of the front element in the queue without removing it.
         """
+        
         # Handle cases where queue is empty
         if self.is_empty():
             raise QueueException("The Queue is empty")
