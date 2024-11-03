@@ -105,8 +105,24 @@ class Queue:
 
     def dequeue(self) -> object:
         """
-        TODO: Write this implementation
+        Remove the value at the beginning of the que and return it.
         """
+
+        # Handle cases where queue is empty
+        if self.is_empty():
+            raise QueueException("The Queue is empty")
+
+        # Grab the value at the front of the que
+        front_value = self._sa[self._front]
+
+        # Move front pointer to next element in the queue
+        self._front = self._increment(self._front)
+
+        # Decrease the size of the queue
+        self._current_size -= 1
+
+        return front_value
+
         pass
 
     def front(self) -> object:
