@@ -209,8 +209,21 @@ class LinkedList:
 
     def find(self, value: object) -> bool:
         """
-        TODO: Write this implementation
+        Looks to see if value exist in list. Returns true if it does and false if it doesn't
         """
+        # Begin at the first node (not the front sentinel)
+        current_node = self._head.next
+
+        # Search through the list for a node with a matching element
+        while current_node.next is not None:
+            if current_node.value == value:
+                return True
+            current_node = current_node.next
+
+        return False
+
+        # At worst, we have to pass through the full list to ensure the value is or isn't present, so O(N).
+
         pass
 
     def slice(self, start_index: int, size: int) -> "LinkedList":
