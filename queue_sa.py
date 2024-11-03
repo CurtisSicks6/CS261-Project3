@@ -115,9 +115,6 @@ class Queue:
         """
         pass
 
-    # The method below is optional, but recommended, to implement. #
-    # You may alter it in any way you see fit.                     #
-
     def _double_queue(self) -> None:
         """
         Helper method that doubles the capacity of the que
