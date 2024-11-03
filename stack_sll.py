@@ -93,8 +93,15 @@ class Stack:
 
     def top(self) -> object:
         """
-        TODO: Write this implementation
+        Returns value of top element in the stack without removing it.
         """
+
+        # Handle cases where the stack is empty
+        if self.is_empty():
+            raise StackException("Stack is empty")
+
+        return self._head.value
+
         pass
 
 # ------------------- BASIC TESTING -----------------------------------------
