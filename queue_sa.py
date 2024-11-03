@@ -87,28 +87,6 @@ class Queue:
 
     # ---------------------------------------------------------------------- #
 
-    def double(self) -> None:
-        """
-        Helper method that doubles the capacity of the que
-        """
-
-        # Create a new array that is double the size fo the current array
-        doubled_capacity = 2 * self._sa.length()
-        new_array = StaticArray(doubled_capacity)
-
-        # Copy elements into the new array starting with the element that at the front of the que
-        front_index = self._front
-        for x in range(self._current_size):
-            new_array[x] = self._sa[front_index]
-            front_index = self._increment(front_index)
-
-        # Update the queue, reset front and back references
-        self._sa = new_array
-        self._front = 0
-        self._back = self._current_size - 1
-
-        pass
-
     def enqueue(self, value: object) -> None:
         """
         Adds a new value to the end of the queue.
@@ -142,8 +120,24 @@ class Queue:
 
     def _double_queue(self) -> None:
         """
-        TODO: Write this implementation
+        Helper method that doubles the capacity of the que
         """
+
+        # Create a new array that is double the size fo the current array
+        doubled_capacity = 2 * self._sa.length()
+        new_array = StaticArray(doubled_capacity)
+
+        # Copy elements into the new array starting with the element that at the front of the que
+        front_index = self._front
+        for x in range(self._current_size):
+            new_array[x] = self._sa[front_index]
+            front_index = self._increment(front_index)
+
+        # Update the queue, reset front and back references
+        self._sa = new_array
+        self._front = 0
+        self._back = self._current_size - 1
+
         pass
 
 
