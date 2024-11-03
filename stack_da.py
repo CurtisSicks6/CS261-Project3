@@ -74,13 +74,24 @@ class Stack:
         self._da.remove_at_index(self._da.length() - 1)
         return top_value
 
-
+        # Occasionally need to resize the array, otherwise function is executed at constant time
+        # Amortized O(1) complexity
         pass
 
     def top(self) -> object:
         """
-        TODO: Write this implementation
+        Returns the value of the top element of the stack without removing it.
         """
+
+        # Handle situation where array is empty
+        if self.is_empty() is True:
+            raise StackException("The stack is empty")
+
+        # Pop out top element and return its value, without removing it from the stack
+        top_value = self._da[self._da.length() - 1]
+        return top_value
+
+        # Constant time complexity O(1)
         pass
 
 
