@@ -66,7 +66,7 @@ class Stack:
         Adds a new element to the top of the stack
         """
 
-        # Create the new node, make it 'next' point to the current head
+        # Create the new node, make its 'next' point to the current head
         new_node = SLNode(value)
         new_node.next = self._head
         self._head = new_node
@@ -75,8 +75,20 @@ class Stack:
 
     def pop(self) -> object:
         """
-        TODO: Write this implementation
+        Removes top element from the stack and returns its value
         """
+        # Handle cases where the stack is empty
+        if self.is_empty():
+            raise StackException("Stack is empty")
+
+        # Retrieve value from top node
+        top_value = self._head.value
+
+        # Update head to be the next node, thereby removing the top element
+        self._head = self._head.next
+
+        return top_value
+
         pass
 
     def top(self) -> object:
