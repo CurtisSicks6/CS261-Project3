@@ -205,8 +205,6 @@ class LinkedList:
         # We have to pass through the full list to ensure our count is correct, so O(N).
         pass
 
-
-
     def find(self, value: object) -> bool:
         """
         Looks to see if value exist in list. Returns true if it does and false if it doesn't
@@ -228,8 +226,34 @@ class LinkedList:
 
     def slice(self, start_index: int, size: int) -> "LinkedList":
         """
-        TODO: Write this implementation
+        This method returns a new LinkedList that contains the requested number of nodes from the
+        original list, starting with the node located at the requested start index.
         """
+
+        # Handle invalid cases
+        if start_index < 0 or start_index >= self.length() or size < 0:
+            raise SLLException("Start index and/or size is invalid")
+
+        if start_index + size > self.length():
+            raise SLLException("Not enough nodes to create requested slice")
+
+        # Create a new list for spliced elements
+        new_list = LinkedList()
+
+        # Move current_node to the start index
+        current_node = self._head.next
+        for x in range(start_index):
+            current_node = current_node.next
+
+        # Create spliced LinkedList
+        for x in range(size):
+            new_list.insert_back(current_node.value)
+            current_node = current_node.next
+
+        return new_list
+
+        # At worst, we have to pass through the full list to ensure the value is or isn't present, so O(N).
+
         pass
 
 
