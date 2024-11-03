@@ -215,7 +215,7 @@ class LinkedList:
         current_node = self._head.next
 
         # Search through the list for a node with a matching element
-        while current_node.next is not None:
+        while current_node is not None:
             if current_node.value == value:
                 return True
             current_node = current_node.next
