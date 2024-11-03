@@ -62,8 +62,19 @@ class Stack:
 
     def pop(self) -> object:
         """
-        TODO: Write this implementation
+        Removes the top element from the stack and returns its value. If the stack is
+        empty, the method raises a custom “StackException”.
         """
+        # Handle situation where array is empty
+        if self.is_empty() is True:
+            raise StackException("The stack is empty")
+
+        # Pop out top element and return its value
+        top_value = self._da[self._da.length() - 1]
+        self._da.remove_at_index(self._da.length() - 1)
+        return top_value
+
+
         pass
 
     def top(self) -> object:
