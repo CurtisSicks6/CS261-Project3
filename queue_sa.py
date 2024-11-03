@@ -1,9 +1,9 @@
-# Name:
-# OSU Email:
+# Name: Curtis Sicks
+# OSU Email: sicksc@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
-# Description:
+# Assignment: Linked List and ADT Implementation
+# Due Date: 11/04/24
+# Description: Implementation of Linked List data structure and ADTs (Stack and Queue).
 
 
 # Note: Changing any part of the pre-implemented methods (besides adding  #
@@ -130,7 +130,7 @@ class Queue:
         """
         Returns the value of the front element in the queue without removing it.
         """
-        
+
         # Handle cases where queue is empty
         if self.is_empty():
             raise QueueException("The Queue is empty")
