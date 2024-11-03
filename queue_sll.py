@@ -102,8 +102,14 @@ class Queue:
 
     def front(self) -> object:
         """
-        TODO: Write this implementation
+        Returns the front value of the queue without removing it.
         """
+
+        # Handle cases where the que is empty
+        if self.is_empty():
+            raise QueueException('Queue is empty')
+
+        return self._head.value
         pass
 
 
