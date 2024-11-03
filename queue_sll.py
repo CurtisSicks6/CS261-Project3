@@ -110,6 +110,7 @@ class Queue:
             raise QueueException('Queue is empty')
 
         return self._head.value
+
         pass
 
 
