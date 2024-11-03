@@ -75,7 +75,7 @@ class Queue:
             self._tail = new_node
         else:
             # Have the tail point to the new node, then set the tail to be the new node
-            self.tail.next = new_node
+            self._tail.next = new_node
             self._tail = new_node
 
         pass
