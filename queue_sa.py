@@ -101,6 +101,7 @@ class Queue:
         self._sa[self._back] = value
         self._current_size += 1
 
+        # May need to resize the queue from time to time. Amortized O(1) complexity
         pass
 
     def dequeue(self) -> object:
@@ -127,13 +128,19 @@ class Queue:
 
     def front(self) -> object:
         """
-        TODO: Write this implementation
+        Returns the value of the front element in the queue without removing it.
         """
+        # Handle cases where queue is empty
+        if self.is_empty():
+            raise QueueException("The Queue is empty")
+
+        return self._sa[self._front]
+
         pass
 
     def _double_queue(self) -> None:
         """
-        Helper method that doubles the capacity of the que
+        Helper method that doubles the capacity of the queue
         """
 
         # Create a new array that is double the size fo the current array
