@@ -82,8 +82,22 @@ class Queue:
 
     def dequeue(self) -> object:
         """
-        TODO: Write this implementation
+        Removes the value at the beginning of the que and returns it
         """
+        # Handle cases where the que is empty
+        if self.is_empty():
+            raise QueueException('Queue is empty')
+
+        # Get the value from the head_node and move head the next node
+        front_value = self._head.value
+        self._head = self._head.next
+
+        # If head becomes none set the tail to be none as well
+        if self._head is None:
+            self._tail = None
+
+        return front_value
+
         pass
 
     def front(self) -> object:
